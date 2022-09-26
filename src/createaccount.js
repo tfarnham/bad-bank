@@ -12,11 +12,21 @@ function CreateAccount(){
   const ctx = React.useContext(UserContext);  
 
   function validate(field, label){
+      console.log("validating create account");
       if (!field) {
-        setStatus('Error: ' + label);
-        setTimeout(() => setStatus(''),3000);
+        setStatus('Error: ' + label + ' cannot be blank');
+        setTimeout(() => setStatus(''),4000);
         return false;
       }
+
+      if (label === 'password'){
+        if (field.length < 8) {
+          setStatus('Error: password must be 8+ characters');
+          setTimeout(() => setStatus(''),4000);
+          return false;
+        }
+      }
+
       return true;
   }
 
@@ -53,7 +63,7 @@ function CreateAccount(){
               </>
             ):(
               <>
-              <h5>Success</h5>
+              <h5>Account created successfully!</h5>
               <button type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
               </>
             )}

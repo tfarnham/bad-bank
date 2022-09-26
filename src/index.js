@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { Route, Routes, Link, HashRouter} from 'react-router-dom';
 import NavBar from './navbar';
 import Home from './home';
 import CreateAccount from './createaccount';
 import Deposit from './deposit';
+import Login from './login';
+import Withdraw from './withdraw';
+import Balance from './balance';
+import AllData from './alldata';
+
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -21,16 +25,18 @@ function Spa() {
   return (
     <HashRouter>
       <NavBar></NavBar>
-      <UserContext.Provider value={{users:[{name:'abel',email:'abel@mit.edu',password:'secret',balance:100}]}}>
-      <div className="container" style={{padding: "20px"}}>TEST2
+      <UserContext.Provider value={{transactions:[],users:[{name:'abel',email:'abel@mit.edu',password:'secret',balance:100}]}}>
+      <div className="container" style={{padding: "20px"}}>Test 
         </div>
       <Routes>
-
-        <Route path="/" exact element={<Home />} />
+          <Route path="/" exact element={<Home />} />
           <Route path="/CreateAccount/" element={<CreateAccount />} />
+          <Route path="/Login/" element={<Login />} />
           <Route path="/Deposit/" element={<Deposit />} />
-          </Routes>
-          TEST
+          <Route path="/Withdraw/" element={<Withdraw />} />
+          <Route path="/Balance/" element={<Balance />} />
+          <Route path="/AllData/" element={<AllData />} />
+        </Routes>
 
       </UserContext.Provider>      
     </HashRouter>

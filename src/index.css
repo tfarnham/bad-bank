@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Tooltip text */
+.hovertip .hovertiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(119, 144, 204);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.hovertip:hover .hovertiptext {
+  visibility: visible;
+}

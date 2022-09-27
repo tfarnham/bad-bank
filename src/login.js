@@ -2,7 +2,6 @@ import React from 'react';
 import { UserContext } from './index.js';
 import Card from './context';
 
-
 function Login(){
   const [show, setShow]         = React.useState(true);
   const [status, setStatus]     = React.useState('');
@@ -12,8 +11,8 @@ function Login(){
 
   function validate(field, label){
       if (!field) {
-        setStatus('Error: ' + label);
-        setTimeout(() => setStatus(''),3000);
+        setStatus('Error: ' + label + ' cannot be blank');
+        setTimeout(() => setStatus(''),5000);
         return false;
       }
       return true;
@@ -38,11 +37,12 @@ function Login(){
         console.log(ctx.loggedin);
       }
       if (loginOK){
-        console.log("not!");
         setShow(false);
       }
       else {
-        console.log("IMPOSTER");
+        setStatus('Error: invalid username and password');
+        setTimeout(() => setStatus(''),5000);
+        console.log("Imposter");
       }
     })
     //ctx.users.push({email,password,balance:100});
@@ -53,9 +53,11 @@ function Login(){
     setEmail('');
     setPassword('');
     // log out the user by deleting their information
-    ctx.loggedin = {};
+    delete ctx.loggedin;
     setShow(true);
   }
+
+
 
   return (
     <Card
@@ -78,6 +80,7 @@ function Login(){
             )}
     />
   )
+
 }
 
 export default Login;

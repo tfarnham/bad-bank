@@ -46,6 +46,10 @@ function CreateAccount(){
     setShow(true);
   }
 
+  function disableButton(){
+    return (name && email && password);
+  }
+
   return (
     <Card
       bgcolor="primary"
@@ -59,12 +63,12 @@ function CreateAccount(){
               <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
               Password<br/>
               <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
-              <button type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>
+              <button disabled = {!(name || email || password)} type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>
               </>
             ):(
               <>
               <h5>Account created successfully!</h5>
-              <button type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
+              <button type="submit" className="btn btn-light"  onClick={clearForm}>Add another account</button>
               </>
             )}
     />

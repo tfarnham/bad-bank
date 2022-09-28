@@ -1,9 +1,19 @@
+import { useLocation } from "react-router-dom";
+
 function NavBar(){
+
+  // with help from: https://medium.com/how-to-react/add-an-active-classname-to-the-link-using-react-router-b7c350473916
+
+  const location = useLocation();
+  const { pathname } = location;
+  console.log('in NavBar: ', pathname);
+  const splitLocation = pathname.split("/");
+
   return(
     <>
     <nav className="navbar navbar-expand-sm navbar-dark bg-secondary">
     <div className="hovertip">
-      <a className="navbar-brand" href="#">BadBank</a>
+      <a className={splitLocation[1] === "" ? "navbar-brand nav-link-active" : "navbar-brand"} href="#">BadBank</a>
       <div className="hovertiptext">Home</div>
           </div> 
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,35 +23,34 @@ function NavBar(){
         <ul className="navbar-nav">
         <div className="hovertip">
           <li className="nav-item">
-            <a className="nav-link" href="#/CreateAccount/">Create Account</a>
+            <a className={splitLocation[1] === "CreateAccount" ? "nav-link nav-link-active" : "nav-link"} href="#/CreateAccount/">Create Account</a>
           </li>
           <div className="hovertiptext">Start by creating an account</div>
           </div> 
           <div className="hovertip">
           <li className="nav-item">
-            <a className="nav-link" href="#/login/">Login</a>
+            <a className={splitLocation[1] === "login" ? "nav-link nav-link-active" : "nav-link"} href="#/login/">Login</a>
           </li>
           <div className="hovertiptext">Login to an existing account</div>
           </div> 
           <div className="hovertip">
           <li className="nav-item">
-            <a className="nav-link" href="#/deposit/">Deposit</a>
+            <a className={splitLocation[1] === "deposit" ? "nav-link nav-link-active" : "nav-link"} href="#/deposit/">Deposit</a>
           </li>
           <div className="hovertiptext">Deposit funds here</div>
           </div> 
           <div className="hovertip">
           <li className="nav-item">
-            <a className="nav-link" href="#/withdraw/">Withdraw</a>
+            <a className={splitLocation[1] === "withdraw" ? "nav-link nav-link-active" : "nav-link"} href="#/withdraw/">Withdraw</a>
           </li>
           <div className="hovertiptext">Withdraw funds here</div>
           </div>
           <div className="hovertip">
           <li className="nav-item">
-            <a className="nav-link" href="#/alldata/">AllData</a>
+            <a className={splitLocation[1] === "alldata" ? "nav-link nav-link-active" : "nav-link"} href="#/alldata/">AllData</a>
           </li>
           <div className="hovertiptext">Debug data</div>
           </div>
-         
         </ul>
       </div>
     </nav>

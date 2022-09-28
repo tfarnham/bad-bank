@@ -14,6 +14,15 @@ code {
 
 .nav-link:hover { color: rgb(140, 191, 230) !important; }
 
+.nav-link-active {
+   color:orange !important;
+}
+
+.navbar__link--active {
+  border-bottom: 3px solid #29b6f6;
+  transition: border-bottom .5s ease-in-out;
+}
+
 /* Tooltip text */
 .hovertip .hovertiptext {
   visibility: hidden;

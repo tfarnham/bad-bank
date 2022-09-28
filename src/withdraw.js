@@ -85,14 +85,14 @@ function Withdraw(){
             ${ctx.loggedin.balance.toFixed(2)} <br />
             Amount<br/>
             <input type="input" className="form-control" id="amount" placeholder="Enter amount" value={amount} onChange={e => setAmount(e.currentTarget.value)} /><br/>
-            <button disabled = {!(amount)} type="submit" className="btn btn-light" onClick={handleCreate}>Make Withdraw</button>
+            <button disabled = {!(amount)} type="submit" className="btn btn-light" onClick={handleCreate}>Make Withdrawal</button>
             </>
           ):(
             <>
             Current Balance<br />
             ${ctx.loggedin.balance.toFixed(2)} <br />
             <h5>Success</h5>
-            <button type="submit" className="btn btn-light" onClick={clearForm}>Make another withdrawl</button>
+            <button type="submit" className="btn btn-light" onClick={clearForm}>Make another withdrawal</button>
             </>
           )
   )}

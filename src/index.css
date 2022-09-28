@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+.nav-link:hover { color: rgb(140, 191, 230) !important; }
 
 /* Tooltip text */
 .hovertip .hovertiptext {

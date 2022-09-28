@@ -34,10 +34,13 @@ function NavBar(){
             <a className="nav-link" href="#/withdraw/">Withdraw</a>
           </li>
           <div className="hovertiptext">Withdraw funds here</div>
-          </div> 
+          </div>
+          <div className="hovertip">
           <li className="nav-item">
             <a className="nav-link" href="#/alldata/">AllData</a>
           </li>
+          <div className="hovertiptext">Debug data</div>
+          </div>
          
         </ul>
       </div>

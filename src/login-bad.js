@@ -20,9 +20,9 @@ function Login(){
   }
 
   function handleLogin(){
-    //console.log("Attempting to login");
-    //console.log(email,password);
-    //console.log(ctx);
+    console.log("Attempting to login");
+    console.log(email,password);
+    console.log(ctx);
     if (!validate(email,    'email'))    return;
     if (!validate(password, 'password')) return;
 
@@ -36,13 +36,17 @@ function Login(){
         ctx.loggedin = {name:checkUser.name, email:checkUser.email, password:checkUser.password, balance:checkUser.balance};
         //console.log("Logged in info")
         //console.log(ctx.loggedin);
+        return;
       }
     })
+
       if (loginOK){
+        console.log("Login was okay");
         setShow(false);
 
       }
       else {
+        console.log("Login failed");
         setStatus('Error: invalid username and password');
         setTimeout(() => setStatus(''),5000);
         console.log("Imposter");
@@ -57,7 +61,7 @@ function Login(){
     // log out the user by deleting their information
     delete ctx.loggedin;
     setShow(true);
-    setToggle(!toggle); // force a re-render
+    setToggle(!toggle);
   }
 
 if(!ctx.loggedin){

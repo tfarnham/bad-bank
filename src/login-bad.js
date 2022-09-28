@@ -28,22 +28,14 @@ function Login(){
 
     let loginOK = false;
     ctx.users.forEach(checkUser => {
-      //console.log("emails: ", email, "|", checkUser.email);
-      //console.log("passwords: ", password, "|", checkUser.password);
       if (email === checkUser.email && password === checkUser.password){
-        //console.log("You're in!!");
         loginOK = true;
         ctx.loggedin = {name:checkUser.name, email:checkUser.email, password:checkUser.password, balance:checkUser.balance};
-        //console.log("Logged in info")
-        //console.log(ctx.loggedin);
         return;
       }
-    })
-
       if (loginOK){
         console.log("Login was okay");
         setShow(false);
-
       }
       else {
         console.log("Login failed");
@@ -51,9 +43,11 @@ function Login(){
         setTimeout(() => setStatus(''),5000);
         console.log("Imposter");
       }
-    
+    }) // <-- These are misplaced! Checks "loginOK" for EACH user, instead of only at the end
     
   }    
+
+
 
   function clearForm(){
     setEmail('');

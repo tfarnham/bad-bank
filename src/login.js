@@ -28,19 +28,16 @@ function Login(){
 
     let loginOK = false;
     ctx.users.forEach(checkUser => {
-      //console.log("emails: ", email, "|", checkUser.email);
-      //console.log("passwords: ", password, "|", checkUser.password);
+
       if (email === checkUser.email && password === checkUser.password){
-        //console.log("You're in!!");
         loginOK = true;
         ctx.loggedin = {name:checkUser.name, email:checkUser.email, password:checkUser.password, balance:checkUser.balance};
-        //console.log("Logged in info")
-        //console.log(ctx.loggedin);
+
       }
-    })
+    }) // <-- These are correctly placed
+
       if (loginOK){
         setShow(false);
-
       }
       else {
         setStatus('Error: invalid username and password');

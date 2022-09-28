@@ -2,8 +2,12 @@ import { useLocation } from "react-router-dom";
 
 function NavBar(){
 
-  // with help from: https://medium.com/how-to-react/add-an-active-classname-to-the-link-using-react-router-b7c350473916
+  // with motivation from: https://medium.com/how-to-react/add-an-active-classname-to-the-link-using-react-router-b7c350473916
 
+
+  // use the hook useLocation to update when the location changes
+  // extract the location (the hash) from the pathname
+  // use logic in each navbar link to ADD the class "nav-link-active" when active
   const location = useLocation();
   const { pathname } = location;
   console.log('in NavBar: ', pathname);
